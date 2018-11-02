@@ -17,11 +17,10 @@ Histogram::Histogram(){
 	names.push_back ("Jane Smith");
 	names.push_back ("Joe Smith");
 }
+
 void Histogram::update (string request, string response){
-	pthread_mutex_lock(&mut); // add locks to make function thread-safe
 	int person_index = map [request];
 	hist [person_index][stoi(response) / 10] ++;
-	pthread_mutex_unlock(&mut);
 }
 void Histogram::print(){
 	cout << setw(10) << right << "Range";
